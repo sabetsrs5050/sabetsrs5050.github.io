@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Yahya Al Sabet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column, work grid breaks out wider; mono labels read like standard and spec references */
+:root{
+  --bg:#eef3f2; --surface:#ffffff; --ink:#122126; --muted:#56676b; --line:#d2dcdb; --accent:#0b7a73; --accent-soft:#d6ebe8;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1517;--surface:#132125;--ink:#e4eeed;--muted:#93a7a9;--line:#24363a;--accent:#5fd3c6;--accent-soft:#163a39;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1517;--surface:#132125;--ink:#e4eeed;--muted:#93a7a9;--line:#24363a;--accent:#5fd3c6;--accent-soft:#163a39;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.06rem;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto}
+.col{max-width:680px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.label{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05}
+
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:24px}
+.mark{font-family:var(--display);font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--ink)}
+.mark sub{font-size:.7em}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+nav ul a{font-family:var(--mono);font-size:.8rem;color:var(--muted);text-decoration:none}
+nav ul a:hover{color:var(--ink)}
+
+.hero{padding-block:48px 72px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:48px;align-items:center}
+@media (max-width:760px){.hero{grid-template-columns:1fr;gap:32px}.hero .photo{order:-1;width:120px}}
+.photo{width:220px;max-width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;border:6px solid var(--surface);box-shadow:0 0 0 1px var(--line)}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;background:var(--accent-soft);color:var(--ink);padding:6px 12px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero h1{font-size:clamp(2.6rem,7.5vw,5.2rem);font-weight:800;letter-spacing:-.03em;margin-top:22px}
+.hero .role{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,2.6vw,1.45rem);margin-top:16px}
+.hero .role em{font-style:normal;color:var(--accent);font-weight:700}
+.hero p.lede{font-size:1.15rem;color:var(--muted);max-width:44ch;margin:18px 0 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{font-family:var(--display);font-weight:700;font-size:.98rem;text-decoration:none;padding:12px 20px;border-radius:10px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+
+.standards{display:flex;flex-wrap:wrap;gap:8px 18px;padding-block:18px;border-block:1px solid var(--line);font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.standards b{color:var(--ink);font-weight:500}
+
+section{padding-block:56px;border-top:1px solid var(--line)}
+.standards+section{border-top:0}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.head h2{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;letter-spacing:-.02em}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 28px}
+@media (max-width:680px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;gap:12px}
+.thumb{aspect-ratio:16/9;max-width:100%;border-radius:12px;position:relative;overflow:hidden}
+.t1{background:radial-gradient(circle at 72% 40%,#9ff0e4 0 9%,transparent 10%),radial-gradient(circle at 60% 58%,#9ff0e4 0 6%,transparent 7%),radial-gradient(circle at 80% 64%,#9ff0e4 0 5%,transparent 6%),linear-gradient(135deg,#0b7a73,#0a3a40)}
+.t2{background:repeating-linear-gradient(0deg,transparent 0 30px,rgba(255,255,255,.18) 30px 32px),linear-gradient(180deg,#5a7f8c 0 55%,#2c4a54 55%)}
+.t3{background:linear-gradient(90deg,#122126 0 33%,#3a6b5d 33% 66%,#c9a24a 66%)}
+.t4{background:radial-gradient(ellipse at 20% 110%,#2f6e9a 0 40%,transparent 41%),linear-gradient(160deg,#7fb06b,#3c6b3a)}
+.thumb .tag{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:.72rem;color:#fff;background:rgba(0,0,0,.4);padding:3px 8px;border-radius:6px}
+.thumb .big{position:absolute;right:16px;top:10px;font-family:var(--display);font-weight:800;font-size:2.6rem;color:rgba(255,255,255,.9);letter-spacing:-.02em}
+.card h3{font-size:1.3rem;font-weight:700}
+.card p{margin:0;color:var(--muted);font-size:1rem}
+.meta{display:flex;gap:12px;flex-wrap:wrap}
+
+.about{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:start}
+@media (max-width:760px){.about{grid-template-columns:1fr;gap:28px}}
+.about p{margin:0 0 16px}
+.side{display:flex;flex-direction:column;gap:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;padding:0;list-style:none}
+.chips li{font-family:var(--mono);font-size:.76rem;border:1px solid var(--line);background:var(--surface);padding:4px 10px;border-radius:6px}
+.lang{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.lang div{display:flex;justify-content:space-between;gap:12px;font-size:1rem}
+.lang span:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.timeline li{display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;padding-block:22px;border-bottom:1px solid var(--line)}
+@media (max-width:560px){.timeline li{grid-template-columns:1fr;gap:4px}}
+.timeline .yr{font-family:var(--mono);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}
+.timeline h3{font-size:1.15rem;font-weight:700}
+.timeline .org{color:var(--muted);font-style:italic}
+.timeline ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:1rem}
+.timeline ul li{display:list-item;border:0;padding:2px 0}
+
+.extra{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+@media (max-width:760px){.extra{grid-template-columns:1fr}}
+.extra h3{font-size:1.05rem;font-weight:700;margin-top:8px}
+.extra p{margin:6px 0 0;color:var(--muted);font-size:.98rem}
+
+.contact h2{font-size:clamp(2rem,6vw,3.4rem);font-weight:800;letter-spacing:-.03em;max-width:18ch}
+.email{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:28px}
+.email code{font-family:var(--mono);font-size:1.02rem;background:var(--surface);border:1px solid var(--line);padding:10px 14px;border-radius:10px;user-select:all;word-break:break-all}
+.links{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;font-family:var(--mono);font-size:.9rem}
+footer{padding-block:32px 48px;border-top:1px solid var(--line);margin-top:56px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.btn:hover{transform:none}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="mark" href="#top">Yahya Al Sabet</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <span class="status"><span class="dot"></span>Open to roles in hydrogen, quality &amp; sustainability</span>
+      <h1>Yahya Al Sabet</h1>
+      <div class="role">Environmental engineer moving into <em>green H<sub>2</sub></em></div>
+      <p class="lede">I combine hands-on EIA and GHG work with quality and compliance auditing, and I'm completing an MSc in Hydrogen Technology in Rosenheim. Based in Burghausen, Germany.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See my work</a>
+        <a class="btn" href="https://www.linkedin.com/in/yahya-al-sabet-155153147" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <img class="photo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADxAPEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7LooooAKKKKACiiigAooooAKKKKAGijNMdlRSzkADqTXm/jL41/Djwvbu114hg1C4Vdy2+mf6S7fNt6r8qn/eYUcrZMpHptFfL2uftdaRbXjx6Z4Nu7uBT8jz6gkLN/wFUfH51l3n7Wer3Kj+zPBdjbHqTc35lUr/AN8pV+zYXPrWivjW8/av8cRuqx+GtBj3dmWV2P5Otbeg/tV6tLL/AMTHwZFchm2qlrK6Mp/4Erbu9Hs2Fz6vzRmvnfSP2pfCUh261oWr6crPtWRNk0e3aPmb5lb14213/hn42fDbxCxSx8TWyP8A3blWhz/31S5GHMek0VQ0vVdM1OIy6dqFreov3mglV8f981fqSgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK4L4u/ErQ/h3ov2rUXWW8mUi1tlfa0h9T/dX/AGq1/HXirRvCeiTajq98lsoRigc/M2P7o/i+nevgD4geMNQ8feNbrWLyRrvzZWWLzmbbBAv3UX+FV+9937zbv71XGNyTT+IvxV8X+OrqX+0dVmWyZlZLeJfKgT733V3fw7m+b5mZfvVwc13HZytFLbRz/wB5nZn/APsf/HasyeZBsSCSOPbu3Tfc2/8AAvvfw1mSM0rbrNZJN33pmX73+7WlyuUdqE7TSrLJaNE391W2qv8AwGqmImf9/Kyhm+8rNuWm3TrzH5irt/urVdZYl2sqszf7O1akC9G1t8vl3d3uX+8y06R54WZYtQZt27crS/NVeE2MjN588kK7vuqu6nTTQIreVL5q7f4kVasCzbnUF/dRy+YrfNtmb+L+9U8OlzvsaXy2/hVoXT5W/wC+lrIk1JX2xLaMrL8qtDtVm/8AHfmp3m3cirGsUkjfeZbjc22mSdh4d8SazoF5Fd6Hr9zHexbdqo+1vl/21+8v+z92vpL4PftLrcz22jeOk8t5G2LfIu3/AIE395f9pa+RbNd77Z4Lb5EZdqTov/jrfxf7taN5Z3b2yXdpG0ixbdzL95Pl+6y/8B/zuqeWMgP1FtbiC7t0ubaVJYXXKOh3Ky1Yr4S+BXx81Pws8WlauzXelRfehP3lTd95Gb+Jf7v+793azV9p6BreneINJttU0m9ivLO5jDxTQt8rD+h9R1FZSjyhzG1RRRUlBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAV5r8V/ivovgaBoG23N+y/JErfd/wBpvRav/GXxpF4N8Ky3e5ftEqssSn/dr4J8beMNQ8Qay95eSySMz7v3v3qqMQOj+LXxFvPG148t5dSsrN+6Tc2xP93/ACteb3TMn+t3RxbfmZf4qmaWxljdmlaOX+FVX5W/2az763glZmkvJWZvm3Kny1ZQ6TU7YweVBB5kv8Tuv3f/AB7/ANlqhdajLt+eRV3fw0yS2beyrOsa/wB7Z/8AE0SWFszr5TSSr/fl2orf/E0EkTOzJvjkVlp0Kztu2r/wFl3bv92rEk0Fqv7tYGX+7u301r/zWVUT5mb5mZfvVIEkKXJXy5YItu7738VRtZ7m2rIse7/e+WrEYl8r95K237zfL/8AE1Xa4gjZ9rLu/h+b5qfMBaj0Z9iM8sa7/u/Mu1mqVoU064ZXntpVT+Ddu/8AQapW95Fu2vJG277zMrNuo1hLS42S2nlRy/xLF8i0wLcb6ZKrRyQW29/lV5fN+X/a+Vv/AGWi32WVyyrKvysy7dzfN/uuvzf99fL/AHqxo1ldWiZWZvvfLW3p7vDapbXaRybvmiZ1+ZP4vlb73/AaskbqCSl4pY9zfLuif+8v935f7v8AnbX0D+yL8Vh4U1N/CuuzrBol/K0vmuv/AB6z/Ku9m/hX5VVt3yr8rfKu6vC9Qm+zQRW1ysyqyfLKy/L/ABfe/wC+fvfe+Vl+ZV20NfxTNa30CrBcRfLKqp/498v8P/svy/3aYj9UadXzV+yL8VL7xGlx4I8RXYl1CyQNYPIPneBRhk3fdbZ8v+0Q38SqzD6VrnkuUcQooopFBRRRQAUUUUAFFFFABRRRQAUUUUAFFFHagD5M/bT1xrnVbfQ4j8trHvdeed3zf+y18q3m7e3+zXuH7Q142o/E7VomaP5LpkVpfufL8u7/AMd3V4vqkbNKrLGyI33N38Xzfe3fxfNVlGGzyl/3bfN/Cy1JHc3KPtl/dt/fZasNC0aIzblZvmXb/vVYtYbnUNttu8xU+6rfw0SkEY80hyw215E0t3PFJOq/Iytt/wC+v9mqTMvm7blo9i/dZa6W18Kavc7USJdqr94L92nyeANTSX975n97+7WEsTCJ1xwVWXQ5JhZ7t9sjbl/vtu/9lpjbgnmfKqr/AHFXc1dbJ4NuYU2s7f7tZV94ZnRWba3+7/epRxcBvL6sYnPfvbjzdzKvy/xNVVbeQtt2tXQf2TPGvzR7Vb7rU1rO7Csvlybl/iWtfbRMZYacehjtDF/dZWWnRoqMrL/31u+atPytzbZFk3/3Wp7WbQ/NErM397+7Ve0M/YyEsWdG3RJHGu371GqWzLbtOzszr825f/Qag+3tby/MrSK33mZqhuNV83926/Jt2stMzLMN7Lc2awSvuVf4WVfvf+y/KtXLe0byop44vLR22eajbtv+f/HqyrF8OkskfG7b8vy/NWnZyrDPK0cjLCzKrozfd/2qoDpfAviW88EeNdJ8TQSq1xpV4rz26Sr88G7YybtrL8yMy/L/AA7Wr9LNLvrTUtOttRsZ457S6iSaCVPuujDcrD8K/LjXJ1mgibfIvy7WVvuv/Du+Zvvbdvzf8B/hr74/ZI1+TXvgjpMFzKst7ozy6VcbVwF8pv3a/wDfpoqKmxP2j16iiisigooooAKKKKACiiigAooooAKKKKACiiigD87/AIkah9s1zxBd3NpJZahPfSt5S7WRGWV1df7ysu1Nu3/arzG+8zcyqzKqt8v+zXpnx5t7rQ/iZ4j0yYEMmpy3ETHa3yTt5qs23+8HWvPLh4pVb5lT5d23d/FtqyjMkdmXy2+avQvhroN3cW7yxR7flZtzLXn+n7p77Yv97+Kvob4W23/EoVJF+8u1vlrjxlTkiehl9HmlzHV+DdEgtIF8yLb/AL33t397/arX8QaFaz7WWLa3zfd+7WnZhUiiWJdrfxVYuBlPutXlS96J7cfiPNdQ8ORruVV/i/u1g3mgrv8A9Wv+9XqV9BuX7v3qxbizbzfmWuXmlE6Ynmv/AAjifNvX73y7ttV18JRI7fe2/wC7Xqkemozfdp8mmrt27flqo15E8sTyr/hGLb/n2VmVvl3/ADVz/iDQZ/IaJUjVP4WZvlr2ibRZHb7tZOteGLl7J4lXzN6/dauilXlGRjVowlE+W9ctJIZWiZfmX7y1mSRSBvmVv71e56h8K9Sv3aVdsf8AvVyPiLwBqWno/mRM2z7zKrNXq08XCR4dXAz+ycVYqz2rK27ay/Nt/hq1JuRPMkb5X+Vqls0a3d43X5VXbt/z/wACqytvFd27x7ZPN+XyFRN25tyqy/53f+zV1xkefKPL7shmpXCzaTFGv3ovk3f3vut/3zuZq+tf2E7q5trPUbASSSW1/JcTqhkbbA0DQDcq/wB6T7U25v8Apiv3v4fkiSwnn0tmgXe0S7nC7t33dzfw/wAKxM3+ztavqP8AYb03yfHuu3NveLJaxaPEmxmwzPJKrMwX+6uxl3VcvhMz7CooorIoKKKKACiiigAooooAKKKKACiiigAooooA+Mv25rc2PxA0y+SCP/TNLRN427tySvub+991k+b/AGf++fmfUt0TeR5e1tvzLur64/b7tmY+CrmKL5w94u//AL8Mqt/49Xyj4iigjdJIkVWl2/Kv8K7Eb+L/AGmb/vmr+yBs/D/RF1XUFjT7qsqs2771fROh6dFYW8VtGqrt/urXC/A3Qfs2grqEsSq8vzKzL822u6k1u1t7hUiXe+7arfdWvDxM5VZ6H0mEhGlDU7PSYW2ruarzIqK26uEuPHljpsW25/durfP8tUv+FpaLNK0byfdb5N275v8A2WpjSlymnto8x3V15ZVdtZskKl6xofF+lXi7YpWVv4Vb+KrkerxSqrKytXNUjI6adSMjQWJU+9Uu1R/s1S+2xuu5qp3msxQKzSSLtRd23d83/fNRyj5jet1Utu27qmWNSv3dq1w+oeM4NOt2llZf9hf4m21w2rfF28j3KsUf8Pyq25q6qNCUjnq14xPeVhs3iZf3attrm9csbF2dJWjV3+Xc38X+zXh9r8VNTurxVZdy7vuotdZp+sX2os222uYlZfvM3/2NbzodznhXlLYxviF8N1vme70r5ZVXcyKv3mryTWNK1XQb+GDUIJIHlXfEzfL/AMCr6Et31O2lWRfmVfvb2+9Vr4keE4PGfhR0iWNb1F821l2/df8Au7v7rfdp0sTKlJRexNfDRrxcup8+QxLYTtHEysrN+6Vm+7u2qjN8v8Ky/wDfS19B/sYTW0nxbvmtVjWBfDrxpIEK5b7TEXX7zfdbd/F93a1fNjSZS1iuYpIntf3VzuX5tyuzfd/3dtfR/wCw4D/ws65VIVjhi8NyopXP7z/TFbP/AAHdtr2ub3T5+UeWR9n0UUVkAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB80/t3aWsng7w5rTt8trfy2rJ/e89N27/wAg/wDj1fIsNh/aWs2NnAzM0rpEq/e27v8AO6v0S+N/g+Px18NdW0QRLLeeX9osPu7vtCfMgVm4Xdym7+67V8NfCPTWuviNpjSruSJnnXd97aqNt/8AHttTUqcsGbYenzTij2q4hj0rQVgiZYtibdv/AMTXH6haarcxJG10sSo25WX5f/sq9A8QNGybGjXbXmvjTV5IttrZ/u2dvmlb7qL/AHq8OFTl0R9K6d9zlfEGlXLMftOqqrbfvKvzVyd1Y3MDb4L7zP7zf3q9W8F6VqupaHfX2m6daRWkETzvqd9F5s7qq/8ALJf+A15PdazrlxqEaNLYN50TyrukiX5U37t3zfI3yNtVvmb5du7cu7vpRnI8+rKnGWpY02/1OFkb76q38LfdrttB1ieVFXfJv3fNuX+H/ZrJbR7yHQbHXLyCO2t71d0UsX3Vb+6y/wANavg+yuZr/fs3RI+1/wDZrDEfCdeGiujO502e+eBF/efN/wB81neKLTVY0V/Lk2Pt+avULHTbZtJhZP3bb/mWpfGlhE2kosG3ds/u1wxlynUfOuuLd3C/v5/m2/M38X+1XG3FrbJO3y+Y275ndvlrv/GmlS6dLunn+R13baXQfCMWueEtVnjXdfLA32a3b7y/xf8AfTV6FGRy16a+I5bQZ9KilWJtXsbRv7rRM3/oNei2dzdWdst3bXVjrNpu+f7Mzb1/4C1eO6Po0767LZW2jTy3EqJDbJ5/7yKfcm59u1d27Drtb7qv975d1fUXjDwBp58NafdxzrZa7BAiz3dv/wAtWVV3s6/xfxferWrSXLzGFCvLn5XEzdB1LTdUtUlgWP5q6bTUVV8v+Fe9cN4X8P3i3rStH+9Ztz7G+V/9r/Zr0izsGhRfMTb/AHq8qR6MoxR8xfGLQk0rx/q37qNYrxFuolZv7y/M3/favX0L+wdYrLpev6xJax7itvbxTHaWUfOzxr/dXdsb/a+X+7XG/HTQrW7l03UZd0S71tbm4X5vKiZm+6v8TfO//fNeg/D/AEu58CeGIdJ/tGZI4naV/s3yPdSt/G+373y7VVfuqqL/ALTV69PEqFJXPDq4GVWq+U+lacOleRfCHx/c63q93oOsfLMrF7MsxZnTuC38Vet9q6adSNSPNE4K9CdCfJMdRRRWhkFFFFABRRRQAUUUUAFFFFADdtU9UvYrDTbi+m+5BE0rf8BG6reeVrivjVI8Pw11Z4vvbEB+m9azm+WLZdKPPOMe55FY+LbnxDe3F1qcDb/N3xSwsysi7vlrl9L0bTbf4nalqFm0ksrWrNczO+9vNd9zK3+1/F/wKtX4exobVmZflb5d1UvDcir4v8QIvyqsibV3K237393/AMd/2a8iFSUlK59RVowpuKRv3FmtwpWuU8SeDY7lvMaJZE/iX+9XcW7Z3VNsV/lZflrKMSrnI+G9bsdJsHs7tvI2KyrEyNt27vmVW/76b+Hb935q8r8SeD/CC639rtGuVt2be1urL8v+yr/N8te2atoVtOrN5f8AwKuauvDVs27bEv8AvVrGvKKsT7CEpXPP/E2oS63ZQ6RAi22n26qsFvCvy/L93czV1fw/8PtY6Sjr5m2Xaqq3+z/FWnp/haPz/wDVfL/E1dha2yRssaxqqoq7ampU5olRpxp/CW9Lh/0J/wC6r1a1KH7Rap91l2VLo6ZsZammRRaxNt+78u5aw5TWUjyb4heGWv7BrlYvMZPldNv3l/vVwdjZ3WmOz2atB8vzNEzLX0bJbJLtV1Vt3y/N/drlNe8HxrO8tqvyM33dtbxk+Uj3dpHnOi65qtnP5qQfvm+Xe3zNXSWNzrWtN5V3LJFauys6KzbX2/d3bquQ6P8AZnVWiX73zblrqdHSCLbtjVv91aPaSl7o+WMdbGr4f0+C2RJHX59v3dtWtW8tEXZ/u0+1i2sZXb5lX+Gs/WLhW+VaJS5YmVuaRxHxKWC48NSyzx+Z5To6L/dbdt3f98tXX+BbaW78IaZfXUiyPLYRKr7t25lRd3/j1cx4oCzaHext91o2/h3Vl/DPxLPY+HrfT5W/dW7bUVV+VVZt3y0cy9lqVCMnV90ualcz+G/HGnaxbqq7JVO3/Z3fdr6stpEngSWNso6hgfUV8v8AxEtlvLrSY4G3NcXS7f8Adba1fTekwG2021hf70cKIfwFdeX9UednfK+R9S9RRRXpHhhRRRQAUUUUAFFFFABRRRQA2ue+Ilh/afgzVLIdXt2P3c9Pm/pXQ+lNcblaplHmjYqEuWSZ8peF7z+z/DVy8q/NBK6N/st8tYvgm6WbxHqcqszLKqsrM3+ytdj4t0ddK8WazoUkjRWt9ueJi27b93/7Bv8AvqvLvDN2umeIJbZX+Zm2srf3lbb/APFNXkKn8R9ROrGSi+56xbzbWatCN1K1z9rNv2srfLWlay53Lu/3q4ub3jbl900ZF+X5W3VS8nfJWhbwq6/e+WpWt13L/D/tVoSV7e0/h2r/AMCqlcPsuGX7tX5rtIk3M3/fNZV1ue6ad2+Vvu7mokOJt6S/+iutWo/n05lb/eqhausNnuWTcrL822rkMi/2a27b8zfK26qGQRysrpGzfMtat0FMCsirv21g+VO7+bGv3G+arn2xSfL+7SiKUSG+sPORWZNrfxL/AHais7PyWVq18pInl0rLtVt33l/ip8ocxnyT7V2q1Z94zfNuart1tLrt3bmrNm27D83zVjPcqJzPii48nTrrbt3Kjba5LSbCW6s9EttM3Nd3m/zYl/gVXZfm/wC+af8AEDUsTy2qy+W7q2zb/e2//FV1XwH23Hgi6ne2jkdbxkWb+JVVU/8AZmZq6fZ/ujGnV5Kx0Z01dQ8Z+H9O81G8j75X+FtqIrf99bv++a+i0HP4V4z8JtOa78ZTX8q7disUR1+6i/Ku3/gTbq9qHXNd+Bj7lzx83qc1VR7C0UUV3HmBRRRQAUUUUAFFFFABRRRQAUUUUAeP/HTSmaS01q2jxIjYDAdHXp9dw/8AHVr5S1KWfT/E97EscavFcuyKv3du5q+5PiJptxqWieVawee6Sh2iz8zLtZeP++q+H/idvtfGdzZy2rWk0EbNsdWVl3fNt2svy7fm/wDQq5JU/fZ6dKrzU15HpfhvUkmgVfM/i2q396uos5Izt/2q8Q8N6xPbpCqsyqzfxN97/a+X+H71em+H9ciu7WL5vmddzN/d3fNXlV6XLI9ijVjKJ3drJH5f3vmqeTdKm1WVVb/a21ztrcqn3Xb73937tWpNYiSLdI3yr91mX7zVMZc3umkvdKuoRTtP+7+b/drz/wCKnifX9DntILGzjaJv+W0v3P8Ax2uv1DxvoFlbu0uo227b8u35f4dy/N935l2t/wACrxD4mfFdri6n07TFguYlfa1wysyP/wABrenhpSZjPFwhHU9H03x5LJpKSTr5St99d27a3/s1Sap40uYLXy7GVZJWXcsTNt3f8CrxO3+ImoPpa6e1nabmb5W2L83/AAGnw+O2tpUe1gjidflZtqvv/wC+vu1X1GXMZf2hS5T2Xwz4/wDFX9oxafdaRBJ5rfdhnZmX/gO2vSZLa5lVZ1+Vm+Zl/u18p6b8Sbyz14XjRRqu1vMWJV+b5fm+bb/7Mv8AvV69pfxktJl8rym+1J95nddrruX7vzKrf/Y/8CqpYSUQjjoS2PXtLk3/ACytubdt+arVw6/Mtee6T480fULxlgudzpGz/Lu/75+b+L/ZrrY9RjeJZGbd8v3lWsJx9nub05RqaolZl89t33v4WasXxFexW6K25m3Nt3L81OvtXi81tzfJtauH8Wa7BFZXUbSxr/s/xKvzf8B/hrONPmkVKpynBePL90vEaRtzs7LuVvmX7/8A8Tur1X9n3db+BGlk/wBVcXkrp83zf3f/AGWvDNcm+1/v12syMiruZvvfN8v/AI9X2D+z/wCBNFT4d6Lq11aGW7uIvOcNOzpu/wB37tepGg5Qsjy54lU6nMzsfhhZqlpc3yD91K+yIsvYfe2/7O7+VdtUSKqIqquAOgFSetdVOHJGx5NWr7WbmOooorQgKKKKACiiigAooooAKKKKACiiigBtfHv7a2mxx+L7C7iG24v4FREVF+dk/ib+995VX733mr7Erxj9qTwW3i3wILmxs4ptRsX8yJmO12DKy7F+ZedzL97/AOxYKjI+I9N1JkdfnVnR02MzfxLu+au+8L675MHmwP8AK33lb/0L/vpv++q8hkmVL+WPzVZVdvmX+Lb/AHd1dHo+pOj7VZV+RmVd3+0zMq/98/d/+Krir0eY9TCVz3jS9YV22ttVV+Zf9mvPvil4yvobj7NZyfwfIzLubd829tv/AHz97/aqx4V1WNE2Syrs2r8zbfvL/nd/wKvN/iBDfJq7SXbNv3Nv+bdt+b5V/wC+fmX/AGWrhw1Llq6noYqp+690w2u5b5/L89pT/dbc25v73+z/APY1Pp/hm8uVbyraRtqK+7+H7y//AGVXvDOmyXO1rGJZbhfvRbfmr0W103xO8Sr/AGfJub5fm+VVrsqV3H3YnNhsCq2s2edWfhDVbp2i8va+5tu6r9r8Ptal06WWSJYFi2syv8rN/u16pa+FPFwiilnsbRd7bV2y/wAVTrpPi24fy/7MWVV+Vm3/ACr/AOO/7X/j1YSxNU9KGUUeU8Sh8PanNE7SWcsbpuVVZW3N/s/d/wDHqi17Qbzw8qtOqsjbtu1v/Zq91j8KeKnt3nW1g2I+xlbcv95f/ZWrndW8GeIb63eOWJfKZfu7v4a1jiZ/aOarlUIx91nlej6r9nnin+1yRsrq7bm3f8Cb+997/wBCr6D+GPihdT0GWOS5Xzrd9jfMzfK3zL/wH73/AHzXgHjDw2uj36xRK3lfdZ1ruvhTftYWvleZGySzp8u3dtVf8/8A2NLE8tSF0cmFjOlV5Gd14k8QT6fe/vfMbfu3KrLtRV/+y+X/AIFXB+KNaa/05GVpN7puVt7blRd3y/7X8P8AwGtXxhPFc3iz7lbYrK67f4Pl3N/s7dv/AI9Xm3iy7jjulgg3Rr/df+GpwlPmNcXU5Tc0GzvPEmr6TpGnxxzzT3KxJu+RWZvl+b/0H+98tfpD4fsF0zRbKwUxbreBUYxx7FZsfMdv8OW5r4+/Yi8F3F94jfxVdwH7DZL+78+BtsjMzbWRv7yun3f/ALGvtU16nLynh1Jc0gooooMwooooAKKKKACiiigAooooAKKKKACiiigAqnqVrFe2E9rMiyJKhVlPQ1cooA/Mb44eE7rwp4vu7VkZkad2SVU271V2Xcy/wtuVvl/2d38Vcxptx5kESrI25flZv9mvqL9rK40TxTrmqWmirbSTaDaD+2bsJvWSdpFWK1Vl/j+V2Zv4djL8rblb5QuEnsLz5kaLcqsqt/ErVM4m9KXLqdLouquk7wM3+tX5W27d3y/N/n/ZrO8RXU73iQMrMq7vkZdvzM3/AMTt+b+JdtRxywXFus8svlvEyqq7fmrPvjJJcNOzKrN83+7XNGn7x2zre5Y9A+Ht1BZXCTr5cTN96vXI/GGn+Uiyy+X838VfOGk6lOj7W8yRfvLtX/x6reqareFHZVj3bf4m/wA/981zTw0pTOynjFTgfQrePNFjgfdfKy/3d1Uofit4Yiddl2v3vlXb/wDY18vXF5KjfvG3nb8o+7USSsHRdzNtZf4f4t1a/U/Mj+159j7Gh+IWgz2v/H5Ht+8q7/vVTvPFdpcqy2LLK33WZf7tfLuhyStP9l8yTduZVVq9Q8P+ZaxRQSfNK25GWJt38P8A4792sKtCUY7m9LG+1fvFv4kWbG1lkVlVtrNu3fe+X/7KuH8K6qsMrW0kaxKrfKrfeT5l+X/x2t/xQ87xMzrF8qfLtf7v+y3/AMT/APY157fXKqq7JW/u7XWtKFP3LSObE1uWfMjrtY1rdZosTMsy/Iv93b/d/wC+a5nTbO+8Q6ylnYwSXN1KyqqorO3/AI7VW4u8wJBtZX3LvZa+hf2PLXR/D3xT/srxIqxaje2sUunS+btXeypKqNt+9vTayqzfKyqu3c1dlClynn4mvKZ9XfB7wYvgPwbb6H5iu6nfKyN8u7b838K/5+ld1RRWxyBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAAV4v+0f8X4PAejnSdHnhfxHdx/uc8rao3/LVvVv7q/8AAm44bT+OvxY0z4baKqAxXviC4j3Wdkx+VV+75su37qZ/76YbV6My/Bni/XtT1/XLvWtYvHu7y6dpZ5n7t/7Kv+yvyqq/LW9Klzasls7jzJW/Zz1XXtiyXD+KXiurhvvuv2aJl3N/FtZ3/wC+mrl18PT638PtM1iziWe6ZZUn+7u+R2Vf4v7u2vZ/2e/DEfjb9mfxh4cVV+1XGqzvAzL8qy/ZoNjf99LXGfs8QrN4P17w9dK0d3Beus8Lr9xXRU/mj1x46Uqa5z0MDGNSXIzxLUovs7Mqo0fy7mX5v7zVm3Ur+au3cu35VVq+iviR8LrW833Wnt5Dom7ylVmXb/s/7VfPWu6fc6bdMJ4m79V4/wA/NWdCvCrsPE4adL0NXw/NG8TMzeXsb+9t/wDiv/QaW+uY5kRmdW3Lv2r977vzfd/hrAtJJULbTtDcsTxgf5/lT/tQSVirbk+ZVYr/AA/5Na8pz+192xejtI5VaV/ur97/AGaf9kiRWfZ/db5v/Qv8/wB6qTXv7ryvM2qrfw7vm+Wq/wBsaR9u1tnPy0cpPNE3bU7JVl3NG/ysv/Afm/z/ALtdlo+qMz221o41VHV97ffbay/Nu/h2/wDAfmrzpbxonVmVdyrsZm+b+HbV1tSlggSLfuVl3p97b833v+Bfw0pU+Y0p1uU6TxhraS/Iu1U3u6qvy7f9n5f92uPX55fMk+Zt3zf7LVUa4aS4be25G+X7v3q9F8B+A31ZoZ5Vb7O/8ar95v8Ax2l7tKOoR5689A+G/gy+13Vkb7LJIrLviRV/1vzbVX/Z+avXv2sPD7eDvHXhnXNHjj09J9OSKJ7aRll+0WzKu/d977jwKrfe+SvUvgX4OsU1S1k+yxsthEjszJ/Gv3fm+9/7L8tZX7emlQP4D0HXcSfabPU2tVK/dVJ42Z93/AoUrpwb5vfM8YlTkoI9H/Z3+K9p8RPDK2t9cwr4kskX7ZDgI00fQTqvp/e2/db0Vlr2Cvyw8LeIdV8O6paa7ot9LZ6hZyebBNE3zK3/ALMu3crK3ysrbW+WvtD4H/tGeHPF1n9g8X3Vn4f1mLje8my1uBt+8rt8sZ/2Wb+7tZt21dq9Dl95HPGR9AUU1WyMjpTq5iwooooAKKKKACiiigAooooAKMis3W9X0zR7Jr7VtRtLC1QhWmuZVijDHp8zV89/FT9paxsYHsPAiG9uGGJNRuUKRJwvMaHlj97720Ar0cGqjTlLYnmPdvFPinw94T01r/xHrNrp1vztaaTBk2/wov3nb/ZXJrxT4h/tQ+F9P0+4g8IW9zqd+y4guJoGith/tbWKu3+7hf8Aer5P8ZeK9Y8T6vLquuanc6hdvuXzbh921dzNtVfuou5m+VdqrXOSTMzbq6Y0F9onmNjxR4i1PxFrVzrGsXkt5fXb75ZpW+Zm/wDZVX7qr91V+WsW45RqZv3tRI2VrYR9VfsH6vHL4Z8S6GqbWs76K63/AN7zUZdv/kD/AMerF8caWvw6/aTllVPK0XxfF5q7V2otxu+Zf97d83/bWuf/AGGb6VPibrenrJ/o8+ktM6f3nSWJV/8AQ2r3b9qLwNP4z+Gj3OmRM+taM/22z2L877fvovys3zL8yqv3mVa48TS9rScTpw1X2VVMyWSKbajKu5l+Xd/EteXfF7wFba3ps0lpbN9oiiYo391tyt/wL+Jdv+1W98I/G1t4p0GKOeRV1KBds8W7/wAe/wB2u1vLaOa3ZfLVvlZdv96vk4ynRqH1ElGpGz2PgnUYZIbhonRlctu2471TKsqtmvqL4gfC+z1W/uruJI4pZ13q23+P+7t/z/6DXj3jD4b6xpd0htbOe7t2/jijZv738O35fu17lHFwmeFXwM4ax2PPWLfe3dafG6pJu2bvQE1qyeHNYWdIvsNyzv8Ad/dn5jTl8N67tK/2Pdl2+7+5bPy/erp9pE5PYz7GQpZs/wAR+9U26SQIv3l27V3fw10emeCtevpIolsmiEqqyvIyp8v97/P95fWvTfCfwnSFFk1BllHl5dNrfK25vl3K1Zzrwhuzelg6s+hwPgjwrfaq8ssaw8xfL5jfeZvu/wCz/C3/AHy1fSmk2GmaPojXLLHtiX53WJd7Kv3V27fm/wBlf8ta02ws7O1luVjjb7Q26Xb/ABbf4W/vVq/B/RG8b+OW1lkkbw7ok+5Gdty3V0v3dq/3U+/8u359n3ttcEaksVOyPT9nDB0rns3wv0a40fwtD/aEfl391/pFyn9xm/g+833V2r8v3tu7+KuK/bAsPt/wC8QbIvMlt2t7hNv8O2dNzf8AfG+vXfurtrzn9pa+isPgZ4tllXcr2DQL/vSsqL/48y179OnyqyPmqlR1J8zPzw0+XMW1qsZ2fMtUbFvvMv3aut96u2PwkHafDz4seNPA06DQ9buYLbdzaO2+2bcys37pvl3Nj7y7W/2q+lPh/wDtVaXqHl2vjHSWsJWZVa8sfni+ZvvNEzblUL/dZ2b+7/DXxfJxRa3ckTfe+X/e+7WUqcJblxkfqf4Z8TaF4p01L/QNXtb+BlG54H3bMrnDr95G/wBlsGt2vy78J+KtY8O6gl/oup3en3KfKs1vKyNt/utt+8v+zX0N8PP2ptYs1gtPGOmQatEGVWu7XbDOq5+Zin3H/wBkLs+7XLPDS+yWpn19TsVwHgP4qeCfGflxaP4gt/tbqv8AoVx+5n3Mu7aqt99l2nOzctd7XO4yjuaXHUUUUrgUrq4gs7eS5uZUghiQu8rttVFHLFiei18//Fz9ozTNHmuNN8FwJqN6m5G1Cb/j3Q8fcX70n8XzfKvyr98V4B8Rfit4t8ayvHq2qyfYmbclnB8kC/N8vC/e/wB5tzf7Ved3FyzN/FXZToKOsiJSOg8a+M9f8U6l9v13VbnULht21pH+VP8AZRfuqv8Asrtrmbi5Zt25qhkl3Nu/2arNL8rf+g1v/hJBnZ2bdSMai3YoZ/71AD4/umnM3y/dpm6heVZv4l/8doA9O/ZF1CWy+PWlW0f7tL22urd/91Ymf/0KJa+9YWyu37y1+bXwhv5NK+LnhW+STy9urW6O3+w7qj/+Os1fpFGamJMj5Q/aE+Ht54A8YL498KxSrpl7KzXiL8ywSs38X+w//jrfL/Eq10/w/wDGVj4jtUXd5d1/HFu/9Br6G1KytdU0+axvoI57edGR4pV3K6t/C1fI/wAVvh3ffDfxCmpaU8raTPL/AKPL/FE33vKb/wBl/vV4mY4Pm9+J7uW4vm/dzPYLiyiuUbcv3fut/EtYl5pjRMy/Ltb7zM3zN/8AFVn/AA98XrrFukF03l3C/L8rfers7qLzU2t/wFlr5/3oyPZ1joedX2mwBm82zgkRm/hT7tVs2ccXlx23lsv3mZv9r/aru7jTWk/d/eWsybQl3OrL8rf3lqo1C4uJztrbS3OyWVWZUVdqfdVa2LOH915q7Y1/2avNZRJEv+w3+7XJ+NNejs4HittuX/i27mWtPiDcz/Elxfa/4hsvB2h7VuL+dYnlTb8v95v+Ar83/Aa+qfBPh3T/AAp4XsdB0yFY7e1iVF+X5mb+Jm/2mbczf71eU/s0+A5bCKXxjq8f+l3qbbVS27ZE3zbv95v/AEHb/tV7cxr6HA4b2UNd2fMZni/az5FshK8a/bIvIrb4C6xBI217ye1iT/aZZ0f/ANBRq9lr5z/b4ulT4X6Pa7try60jqv8AeVYJVb/0Ja9KJ5P2j4xs/u7lba3/AKFVhZVK/wC1/tVVt+ImqSTlV/2a6IjFkbd/vVWY4bb/AOhVIvzM3zbl/vUxk/4DuqZGhPDNhF/vVbhum2/N/erMWWKNvnk21Ir7fmj+7tojIDft75l2/Ntr07wB8b/H/hTyYrTWpL6yTaq2d9++i2qu1VXd8yL/ALKMv3a8Zjl27l3VbhuW3feq7RlH3iD6r/4aw17/AKFfTP8Av69FfLnnr/db/vqio9lS7D5mXZqpTfeNFFS9iyvP92oR/qXoopICP+9Te1FFMBB96SpYOktFFSBb8J/8jxo3/YQg/wDQ1r9No/u0UVUSZE0Veb/tH/8AJItX+kH/AKHRRWOI+E2wvxnzr8Pv+Qkn/XSSvf8ATv8Aj3joor5Cv8bPr6mxCv36av3pKKK44i6GZrv+ok/4FXjfjH/j4uP+vg/+ixRRXfhf4hcv4R9raJ/yDof+uNWD0oor6qJ8TU3YlfK//BQL/kBeEv8Ar4uv/ZKKK2W5ktz5PT/ULUa/6uiitjQZa/6s/SmX/wDqRRRWbGU9N/1yVpJ0oooQDFqeKiimImoooqhn/9k=" alt="Portrait of Yahya Al Sabet">
+  </header>
+
+  <div class="standards" aria-label="Standards and frameworks">
+    <span><b>ISO 9001</b> Quality</span>
+    <span><b>ISO 45001</b> Safety</span>
+    <span><b>ISO 14001</b> Environment</span>
+    <span><b>ISO 17025</b> Labs</span>
+    <span><b>HIGG · ZDHC</b> Compliance</span>
+  </div>
+
+  <section id="work">
+    <div class="head"><h2>Selected work</h2></div>
+    <div class="grid">
+      <article class="card"><div class="thumb t1"><span class="big">H₂</span><span class="tag">Master's thesis</span></div>
+        <div class="meta"><span class="label">Rosenheim University</span><span class="label">2024 – now</span></div>
+        <h3>Integrated ISO 9001 + 45001 framework for an electrolyzer</h3>
+        <p>Developing one management framework that covers quality and occupational safety for the operational process control of an electrolyzer unit in green hydrogen production.</p></article>
+      <article class="card"><div class="thumb t2"><span class="tag">Infrastructure</span></div>
+        <div class="meta"><span class="label">Greenbud</span><span class="label">2020 – 2021</span></div>
+        <h3>Environmental monitoring for major transit projects</h3>
+        <p>Field monitoring for the Padma Bridge Rail Link and the Dhaka Mass Transit Development Project, plus EIA, IEE and EMP reports and GHG emission calculations.</p></article>
+      <article class="card"><div class="thumb t3"><span class="tag">Compliance</span></div>
+        <div class="meta"><span class="label">Envoage Sustainable Solution</span><span class="label">2021 – 2023</span></div>
+        <h3>Quality and sustainability compliance</h3>
+        <p>Set up inspection and testing methods to international standards and managed client compliance data under the HIGG Index and ZDHC chemicals framework.</p></article>
+      <article class="card"><div class="thumb t4"><span class="big">1st</span><span class="tag">Award</span></div>
+        <div class="meta"><span class="label">Solve-A-Thon, Sylhet</span><span class="label">2017 – 2018</span></div>
+        <h3>Hydraulic ram pump for hilly communities</h3>
+        <p>A funded water-supply project that pumps water from a downhill source uphill without electricity. Won first place in the Sylhet Division (A2i &amp; ICT Division Bangladesh).</p></article>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="head"><h2>About</h2></div>
+    <div class="about">
+      <div class="col">
+        <p>I'm an environmental engineer and quality management professional. I trained in Civil and Environmental Engineering at Shahjalal University of Science &amp; Technology, then spent several years writing environmental impact assessments, calculating greenhouse gas emissions and auditing quality and compliance systems for clients in Bangladesh.</p>
+        <p>Now I'm bringing that experience to the green hydrogen sector. I'm looking for roles that connect environmental sustainability, quality management and hydrogen process operations.</p>
+      </div>
+      <div class="side">
+        <div><span class="label">Core skills</span>
+          <ul class="chips"><li>EIA · IEE · EMP</li><li>GHG accounting</li><li>Quality inspection &amp; testing</li><li>Process control</li><li>Sustainability reporting</li></ul></div>
+        <div><span class="label">Tools</span>
+          <ul class="chips"><li>Aspen Plus</li><li>ArcGIS</li><li>AutoCAD</li><li>SPSS</li><li>ANSYS</li><li>EPANET</li><li>MODFLOW</li><li>SWMM</li><li>ETABS</li><li>SAP2000</li></ul></div>
+        <div><span class="label">Languages</span>
+          <div class="lang"><div><span>English</span><span>C1</span></div><div><span>German</span><span>B1.1</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="head"><h2>Experience &amp; education</h2><span class="label">Most recent first</span></div>
+    <ol class="timeline">
+      <li><span class="yr">2024 – now</span><div><h3>MSc, Hydrogen Technology</h3><span class="org">Rosenheim University of Applied Sciences, Germany</span>
+        <ul><li>Thesis: integrated ISO 9001 / 45001 framework for electrolyzer process control</li><li>Coursework in Sustainability and Economics, incl. a case study on the Paris Agreement and climate action in Bangladesh</li></ul></div></li>
+      <li><span class="yr">Dec 2021 – Jun 2023</span><div><h3>Quality Manager</h3><span class="org">Envoage Sustainable Solution</span>
+        <ul><li>Implemented inspection, testing and evaluation methods to international standards</li><li>Prepared EIA, IEE and EMP reports for client projects</li><li>Coordinated cross-functional teams on compliance and delivery</li><li>Managed HIGG Index and ZDHC compliance data</li></ul></div></li>
+      <li><span class="yr">Mar 2020 – Feb 2021</span><div><h3>Executive, Operations</h3><span class="org">Greenbud</span>
+        <ul><li>Environmental monitoring for the Padma Bridge Rail Link and Dhaka Mass Transit projects</li><li>EIA, IEE and EMP reports for large infrastructure developments</li><li>GHG emissions calculations and multi-site team coordination</li></ul></div></li>
+      <li><span class="yr">2015 – 2019</span><div><h3>BSc (Engg.), Civil and Environmental Engineering</h3><span class="org">Shahjalal University of Science &amp; Technology, Bangladesh</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="extra">
+      <div><span class="label">Publication · 2020</span><h3>Socio-economic impacts of Surma River bank erosion</h3><p>Co-author of a GIS and statistical study in the International Journal of Science and Engineering Invention, 6(1).</p></div>
+      <div><span class="label">Certification</span><h3>ISO/IEC 17025:2017</h3><p>Bangladesh Accreditation Board.</p></div>
+      <div><span class="label">Certification</span><h3>Sewage Treatment Plant Management</h3><p>Shahjalal University of Science &amp; Technology.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <span class="label">Contact</span>
+    <h2 style="margin-top:12px">Working on hydrogen, quality or sustainability? Let's talk.</h2>
+    <div class="email">
+      <code id="mail">yahyaalsabet@gmail.com</code>
+      <button class="btn" id="copy" type="button">Copy email</button>
+    </div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/yahya-al-sabet-155153147" target="_blank" rel="noopener">linkedin.com/in/yahya-al-sabet ↗</a>
+    </div>
+  </section>
+
+  <footer><span class="label">© 2026 Yahya Al Sabet · Burghausen, Germany</span></footer>
+</div>
+
+<script>
+const b=document.getElementById('copy'),m=document.getElementById('mail');
+b.addEventListener('click',()=>{
+  const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy email',1600)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(m);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press copy'};
+  try{navigator.clipboard.writeText(m.textContent).then(done,sel)}catch(e){sel()}
+});
+</script>
+
+</body>
+</html>
